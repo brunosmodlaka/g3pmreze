@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
+        #naslov {
+            text-align: center;
+
+        }
+
+        body {
+            background-color: aqua;
+            font-family: 'Roboto Condensed', sans-serif;
+            text-align: center;
+        }
+
+        .wraper {
+            width: 540px;
+            height: 650px;
+            border-radius: 10px;
+            margin: 0 auto;
+            background-color: wheat;
+            border: 2px solid black;
+
+        }
+
+        #small {
+            text-align: center;
+            padding-top: 10px;
+        }
+
+        #gumb {
+            width: 400px;
+            font-size: 2rem;
+            background-color: rgb(241, 228, 207);
+        }
+
+        #gumb:hover {
+            background-color: rgb(207, 194, 175);
+        }
+
+        .prvo {
+            font-size: 2rem;
+        }
+
+        .wrong {
+            visibility: hidden;
+        }
+
+        #ponovi {
+            width: 250px;
+            font-size: 2rem;
+            background-color: rgb(241, 228, 207);
+        }
+
+        .drugo {
+            font-size: 2rem;
+            position: absolute;
+            margin-top: 0px;
+            margin-left: 0px;
+            visibility: hidden;
+        }
+
+        .trece {
+            position: absolute;
+            margin-top: 0px;
+            margin-left: 80px;
+            visibility: hidden;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helllo</title>
+</head>
+
+<body>
+
+
+
+<p>Ej</p>
+
+
+
+
+
+
+
+
+
+    <h1 id="naslov">Plavi igrač</h1>
+
+    <div class="wraper">
+        <h2 id="small">Pitanja</h2>
+        <div class="prvo">1# Kada je hrvatska postala članica EU? <br><br><br><br>
+            <input type="button" value="2016" id="gumb" name="prvi"></button><br><br>
+            <input type="button" value="2023" id="gumb" name="drugi"></button><br><br>
+            <input type="button" value="2013" id="gumb" name="treci"></button><br><br>
+        </div>
+
+        <div class="drugo">2# Kako se zvao prvi hrvatski predsjednik? <br><br><br><br>
+            <input type="button" value="Stefan Vuksanović Mudja" id="gumb" name="prvi_2"></button><br><br>
+            <input type="button" value="Dr. Franjo Tuđman" id="gumb" name="drugi_2"></button><br><br>
+            <input type="button" value="Slobodan Milošević" id="gumb" name="treci_2"></button><br><br>
+        </div>
+
+        <div class="trece">3# Gdje je rođen Mišo Kovač <br><br><br><br>
+            <input type="button" value="Split" id="gumb" name="prvi_3"></button><br><br>
+            <input type="button" value="Šibenik" id="gumb" name="drugi_3"></button><br><br>
+            <input type="button" value="Beograd" id="gumb" name="treci_3"></button><br><br>
+        </div>
+
+
+
+
+
+
+
+
+
+        <div class="wrong">
+            <h1>Pogrješio si! <br><br>
+                <button id="ponovi">Ponovi</button> <br>
+                <H1>Score : <span id="reza"></span></H1>
+            </h1>
+        </div>
+    </div>
+
+
+    <button id="back">vrati</button>
+    <button id="minjaj">NEXT</button>
+    <script>
+
+
+        // var tocan_prvi = $("#gumb").val("2016")
+
+        var prvi = $('[name="prvi"]');
+        var drugi = $('[name="drugi"]');
+        var treci = $('[name="treci"]');
+
+
+
+        var cetvrti = $('[name="prvi_2"]');
+        var peti = $('[name="drugi_2"]');
+        var sesti = $('[name="treci_2"]');
+
+        var sedmi = $('[name="prvi_3"]');
+        var osmi = $('[name="drugi_3"]');
+        var deveti = $('[name="treci_3"]');
+
+
+        var score = 0;
+
+        $(prvi).on("click", function () {
+            $(prvi).css("background-color", "red")
+            $(".prvo").fadeOut(2000);
+            setTimeout(() => {
+                $(".wrong").css("visibility", "visible")
+            }, 2100);
+
+            $("#reza").text(score);
+
+
+
+        })
+
+        $("#back").on("click", function () {
+            window.open("plava.html")
+        })
+        $(drugi).on("click", function () {
+            $(drugi).css("background-color", "red")
+            $(".prvo").fadeOut(2000);
+            setTimeout(() => {
+                $(".wrong").css("visibility", "visible")
+            }, 2100);
+
+            $("#reza").text(score);
+        })
+
+        $(treci).on("click", function () {
+            $(treci).css("background-color", "lightgreen")
+            score++;
+            $(".prvo").fadeOut(2000);
+            setTimeout(() => {
+
+                $(".drugo").css("visibility", "visible")
+
+            }, 2100);
+        })
+
+        $(cetvrti).on("click", function () {
+            $(cetvrti).css("background-color", "red")
+            $(".drugo").fadeOut(2000);
+            setTimeout(() => {
+                $(".wrong").css("visibility", "visible")
+            }, 2100);
+
+            $("#reza").text(score);
+        })
+
+
+        $(peti).on("click", function () {
+            $(peti).css("background-color", "lightgreen")
+            score++;
+            $(".drugo").fadeOut(2000);
+            setTimeout(() => {
+
+                $(".trece").css("visibility", "visible")
+
+            }, 2100);
+        })
+
+        $(sesti).on("click", function () {
+            $(sesti).css("background-color", "red")
+            $(".drugo").fadeOut(2000);
+            setTimeout(() => {
+                $(".wrong").css("visibility", "visible")
+            }, 2100);
+
+            $("#reza").text(score);
+        })
+
+
+        $(sedmi).on("click", function () {
+            $(sedmi).css("background-color", "red")
+            $(".trece").fadeOut(2000);
+            setTimeout(() => {
+                $(".wrong").css("visibility", "visible")
+            }, 2100);
+
+            $("#reza").text(score);
+        })
+
+        $(osmi).on("click", function () {
+            $(osmi).css("background-color", "lightgreen")
+            score++;
+            $(".trece").fadeOut(2000);
+            setTimeout(() => {
+
+                $(".cetvrto").css("visibility", "visible")
+
+            }, 2100);
+        })
+
+        
+        $(deveti).on("click", function () {
+            $(deveti).css("background-color", "red")
+            $(".trece").fadeOut(2000);
+            setTimeout(() => {
+                $(".wrong").css("visibility", "visible")
+            }, 2100);
+
+            $("#reza").text(score);
+        })
+
+
+        $("#ponovi").on("click", function () {
+            window.open("plava.html")
+        })
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <h1>Odaberi igrača: </h1> <br>
+
+
+
+
+  <select name="kvizina" id="kviz">
+    <option value="plavi" id="plava">Plavi</option>
+    <option value="crveni" id="crveni">Crveni</option>
+    <option value="zuti" id="zuti">Žuti</option>
+    <option value="zeleni" id="zeleni">Zeleni</option>
+  </select>
+  <br><br><br>
+
+  <button id="majkomila">
+    Započni igru
+  </button>
+
+  <script>
+    var plava = $("#plava").val();
+    var crveni = $("#crveni").val();
+    var zuti = $("#zuti").val();
+    var zeleni = $("#zeleni").val();
+
+    $(function () {
+
+      $("#majkomila").on("click", function () {
+       
+
+
+        $('#kviz option').each(function () {
+          if ($("#plava").is(':selected')) {
+            window.open("plava.html")
+            console.log(plava)
+          }
+
+          if ($(crveni).is(':selected')) {
+            window.open("crvena.html")
+          
+          }
+        })
+
+
+
+        })
+
+        
+
+      })
+
+   
+
+  </script>
+</body>
+
+</html>
